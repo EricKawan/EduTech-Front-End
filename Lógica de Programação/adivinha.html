@@ -1,0 +1,62 @@
+<meta charset = "UTF-8">
+<h1> JOGO DA ADIVINHAÇÃO </h1>
+<hr>
+<br>
+<input type="button" value="Adivinhar Número" onclick= adivinhar()>
+<br><br><br>
+<div>
+<img id="imagem" src="imagens/neutro.png">
+</div>
+<p id="texto1"></p>
+<p id="texto2"></p>
+
+
+<script>
+	var numero;
+	var resposta = "Escolha um número entre 1 e 20";
+	var escolha;
+
+	function adivinhar(){
+		numero = sortearNumero();
+
+		var tentativa = 1;
+
+		while (tentativa <= 4 ){
+			escolha = prompt("Informe o seu Palpite: ", resposta);
+
+			if (numero == escolha) {				
+				break;
+			} else {
+				alert("Você Errou!");
+				resposta = verificar();
+				tentativa = tentativa + 1;
+			}
+		}
+
+		if (tentativa > 4) {
+			document.getElementById("imagem").src = "imagens/perdeu.png";
+			document.getElementById("texto1").innerText = "Você PERDEU!";
+			document.getElementById("texto2").innerText = "O Nº escolhido foi: " + numero ;
+		} else {
+			alert("Você Acertou!");
+			document.getElementById("imagem").src = "imagens/acertou.png";
+			document.getElementById("texto1").innerText = "Você VENCEU!";
+			document.getElementById("texto2").innerText = "O Nº escolhido foi: " + numero ;
+		}
+	}
+	
+	function sortearNumero(){
+		numero = Math.round(Math.random()*20);
+		return numero;
+	}
+
+	function verificar(){
+		if (escolha > numero){
+			resposta = "Informe um numero MENOR!";
+		} else {
+			resposta = "Informe um numero MAIOR";
+		}
+		return resposta;
+	}
+
+</script>

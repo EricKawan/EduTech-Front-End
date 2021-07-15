@@ -1,0 +1,40 @@
+<meta charset="UTF-8">
+
+<h1> Veja se você pode votar e qual seu tipo de voto </h1>
+<hr>
+
+<script>
+	function pulalinha(){
+		document.write("<br>");
+	}
+
+	function mostra(frase){
+		document.write(frase);
+		pulalinha();
+	}
+
+	var nome = prompt("Digite qual é o seu nome: ");
+	var idade = parseInt(prompt("Digite qual sua idade: "));
+
+	if(idade < 16){
+		mostra(nome + ", você não pode votar ainda. ");
+	}
+	
+	if(idade >= 16 && idade < 18){
+		mostra(nome + ", seu tipo de voto é o facultativo. ");
+	}
+
+	if(idade >= 18 && idade <= 70){
+		mostra(nome + ", seu tipo de voto é obrigatório. ");
+	}
+
+	if(idade > 70){
+		mostra(nome + ", seu tipo de voto é o facultativo. ");
+	}
+
+</script>
+
+<br><br><br>
+<a href="index.html"> Voltar </a>
+
+<body background="https://thumbs.dreamstime.com/z/urna-de-voto-isolada-com-papel-do-voto-77838111.jpg" bgproperties="fixed"> </body>

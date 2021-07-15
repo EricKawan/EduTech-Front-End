@@ -1,0 +1,40 @@
+<meta charset="UTF-8">
+
+<h1> Tela de login </h1>
+<hr>
+Para entrar no sistema clique em
+<br><br><br><br>
+<input type="button" id="btn" value="Logar" onclick=verificar()>
+
+<script>
+	var usuario = "Eric Kawan";
+	var senha = "1234567";
+
+	function verificar() {
+		var tentativas = 1;
+		while(tentativas <= 3){
+			var user = prompt("informe o nome do usuário: ");
+			var pass = prompt("informe a senha de acesso: ");
+
+			if (usuario == user && senha == pass){
+				alert("Bem vindo ao sistema. " + usuario);
+				alert("Você será redirecionado.");
+				window.location="pagina.html";
+				break;
+			} else {
+				tentativas = tentativas + 1;
+				alert("Usuário ou Senha incorretos!")
+				alert(tentativas);
+			}
+		}
+		if (tentativas > 3) {
+			document.getElementById("btn").disabled = true;
+			alert("Suas tentativas acabaram. ");	
+
+		}
+	}
+	
+</script>
+
+<body background="https://static.vecteezy.com/ti/vetor-gratis/p1/1218846-fundo-wallpaper-com-poligonos-em-gradiente-cor-gr%C3%A1tis-vetor.jpg"   b="fixed">
+</body>

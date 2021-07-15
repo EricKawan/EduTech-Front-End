@@ -1,0 +1,60 @@
+<meta charset="utf-8">
+<h1>JOKENPÔ</h1>
+<hr>
+<p id="partida">PARTIDA: </p>
+<hr>
+<p id="jogador">JOGADOR: </p>
+<img src="pedra_e_papel.png">
+<input type="button" value="JOGAR" onclick=Jogar()> <br>
+<input type="radio" name="G1" id="pedra"> Pedra
+<input type="radio" name="G1" id="papel"> Papel
+<input type="radio" name="G1" id="tesoura"> Tesoura
+<hr>
+<p id="resultado">RESULTADO: </p>
+<hr>
+<p id="computador">COMPUTADOR: </p>
+<img src="pc.png" id="pc"><br>
+
+<script>
+	var partida = 0;
+	var jogador = 0;
+	var computador = 0;
+	function Jogar() {
+		partida++;
+		var sorteio=0;
+		if (document.getElementById("pedra").checked == false &&
+			document.getElementById("papel").checked == false &&
+			document.getElementById("tesoura").checked == false ){ alert("Escolha uma OPÇÃO!");
+		}else {
+			sorteio = Math.round(Math.random()*3);
+			switch (sorteio){
+				case 0: document.getElementById("pc").src = "pcpedra.png";
+				case 1: document.getElementById("pc").src = "pcpapel.png";
+				case 2: document.getElementById("pc").src = "pctesoura.png";
+			}
+			document.getElementById("partida").innerText="PARTIDA: " + partida;
+			verificar(sorteio);
+		}
+	}
+
+	function verificar(sorteio){
+		alert(sorteio);
+		if ((document.getElementById('pedra').checked == true && sorteio == 2)||
+			(document.getElementById('papel').checked == true && sorteio == 0)||
+			(document.getElementById('tesoura').checked == true && sorteio == 1)) 
+				{
+				jogador++;
+				document.getElementById("resultado").innerText = "JOGADOR VENCEU!";
+				document.getElementById("jogador").innerText = "JOGADOR: "+jogador;
+				} else 
+		if ((document.getElementById('pedra').checked == true && sorteio == 1)||
+			(document.getElementById('papel').checked == true && Sorteio == 2)||
+			(document.getElementById('tesoura').checked == true && sorteio == 0)) 
+				{
+				computador++;
+				document.getElementById("resultado").innerText = "COMPUTADOR VENCEU!";
+				document.getElementById("computador").innerText = "COMPUTADOR: "+computador;
+				} else 
+		if ((document.getElementById('pedra').checked == true && sorteio == 0)||
+			(document.getElementById('papel').checked == true && sorteio == 1)||
+			(document.getElementById('tesoura').checked == true && sorteio == 2)) 
